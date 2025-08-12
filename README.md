@@ -1,3 +1,5 @@
+Day 1 Progress: repo scaffold, API health check running locally.
+
 # Generative AI–Powered Sentiment & Insights Dashboard
 
 End‑to‑end project: ingest review data → clean & analyze → run sentiment (VADER/BERT) → generate LLM summaries → visualize insights via dashboard and/or BI tool.
