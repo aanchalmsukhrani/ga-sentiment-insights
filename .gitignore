@@ -1,0 +1,36 @@
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.so
+
+# Virtual environments
+.venv/
+env/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS files
+.DS_Store
+
+# Data
+data/raw/
+data/processed/
+*.sqlite
+
+# Env
+.env
+
+# Cache
+*.cache/
+.cache/
+
+# Logs
+logs/
+*.log
+
+# Node (if used for frontend later)
+node_modules/
+dist/
