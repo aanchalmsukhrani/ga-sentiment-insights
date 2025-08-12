@@ -1,4 +1,8 @@
 Day 1 Progress: repo scaffold, API health check running locally.
+![Python](https://img.shields.io/badge/Python-3.10+-informational)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.111-green)
+![Status](https://img.shields.io/badge/Project-Active-brightgreen)
+
 
 # Generative AI–Powered Sentiment & Insights Dashboard
 
