@@ -28,6 +28,10 @@ pip install -r requirements.txt
 
 # 3) Run API (health check)
 uvicorn src.app.main:app --reload
+
+# Run locally (quick alias)
+source .venv/bin/activate
+uvicorn src.app.main:app --reload
 ```
 
 API will run at http://127.0.0.1:8000  → Visit `/health`
