@@ -1,6 +1,6 @@
-Day 1 Progress: repo scaffold, API health check running locally.
-## Day 2 Progress Update
+**Day 1:** Progress: repo scaffold, API health check running locally.
 
+**Day 2:**
 - Loaded sample product and review data into the PostgreSQL database.
 - Verified data by running queries in pgAdmin to check product reviews, ratings, and dates.
 - Created SQL joins between `reviews` and `products` tables to display product titles with their corresponding reviews.
@@ -10,6 +10,10 @@ Day 1 Progress: repo scaffold, API health check running locally.
 **Day 3:** Added CSV ingestion (Pandas→Postgres), sample data, and baseline VADER sentiment script. 
 - Created `product_metrics` SQL view joining products, reviews, and sentiment results.  
 - Added test script to fetch metrics from the view.  
+
+**Day 4:** Added VADER baseline sentiment scoring, created `product_metrics` SQL view, and exposed read-only API endpoints:
+- `/products`, `/metrics`, `/metrics/{product_id}`, `/products/{product_id}/reviews`
+
 
 ![Python](https://img.shields.io/badge/Python-3.10+-informational)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.111-green)
