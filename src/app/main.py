@@ -3,10 +3,26 @@ from sqlalchemy import create_engine, text
 from pydantic import BaseModel
 import os
 from dotenv import load_dotenv
+from fastapi.responses import JSONResponse
 
 load_dotenv()
+
+
 app = FastAPI(title="AI Sentiment & Insights API", version="0.1.0")
+
+@app.get("/")
+def root():
+    return JSONResponse({"message": "AI Sentiment & Insights API", "docs": "/docs", "health": "/health"})
 from fastapi.middleware.cors import CORSMiddleware
+
+
+
+app = FastAPI(title="AI Sentiment & Insights API", version="0.1.0")
+
+@app.get("/")
+def root():
+    return JSONResponse({"message": "AI Sentiment & Insights API", "docs": "/docs", "health": "/health"})
+
 
 app.add_middleware(
     CORSMiddleware,
