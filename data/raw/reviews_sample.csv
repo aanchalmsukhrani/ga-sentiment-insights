@@ -1,0 +1,4 @@
+product_title,category,brand,user_hash,review_text,rating,review_date,source,lang
+Sample Bluetooth Headphones,Electronics,Acme,u_abc123,"Great sound but a bit tight on the head.",4,2025-07-01,sample,en
+Sample Bluetooth Headphones,Electronics,Acme,u_def456,"Battery life is average.",3,2025-07-03,sample,en
+Travel Backpack 40L,Luggage,TrailCo,u_xyz999,"Perfect size for weekend trips!",5,2025-07-05,sample,en
