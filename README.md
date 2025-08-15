@@ -7,7 +7,9 @@ Day 1 Progress: repo scaffold, API health check running locally.
 - Built and tested a `v_product_metrics` view to quickly fetch product review counts and average ratings.
 - Confirmed that queries return correct results and are ordered as expected.
 
-**Day 3:** Added CSV ingestion (Pandas→Postgres), sample data, and baseline VADER sentiment script.
+**Day 3:** Added CSV ingestion (Pandas→Postgres), sample data, and baseline VADER sentiment script. 
+- Created `product_metrics` SQL view joining products, reviews, and sentiment results.  
+- Added test script to fetch metrics from the view.  
 
 ![Python](https://img.shields.io/badge/Python-3.10+-informational)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.111-green)
