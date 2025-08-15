@@ -6,6 +6,15 @@ from dotenv import load_dotenv
 
 load_dotenv()
 app = FastAPI(title="AI Sentiment & Insights API", version="0.1.0")
+from fastapi.middleware.cors import CORSMiddleware
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],          # for dev, wide open
+    allow_methods=["GET"],        # read-only API
+    allow_headers=["*"],
+)
+
 
 DATABASE_URL = os.getenv("DATABASE_URL")
 engine = create_engine(DATABASE_URL, future=True)

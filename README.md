@@ -13,6 +13,30 @@
 
 **Day 4:** Added VADER baseline sentiment scoring, created `product_metrics` SQL view, and exposed read-only API endpoints:
 - `/products`, `/metrics`, `/metrics/{product_id}`, `/products/{product_id}/reviews`
+### API (read-only)
+- `GET /products` → list products
+- `GET /metrics` → per-product: total_reviews, avg_rating, avg_sentiment_score, positive/neutral/negative counts
+- `GET /metrics/{product_id}` → metrics for a single product
+- `GET /products/{product_id}/reviews?limit=100` → reviews + sentiment for that product
+
+**Quick test**
+```bash
+curl -s http://127.0.0.1:8000/metrics | jq
+
+
+## 4) Close/organize GitHub items (2 mins)
+- Close “Implement product metrics view for analytics” (if still open anywhere).
+- Add a new issue: **“Build minimal dashboard (Day 5)”** with subtasks:
+  - Streamlit or simple React page
+  - Call `/metrics` and `/products/{id}/reviews`
+  - Basic charts (bar for sentiment counts, line for ratings over time)
+
+## 5) Commit the polish
+If you added CORS + README updates:
+```bash
+git add src/app/main.py README.md
+git commit -m "chore: enable CORS for dev and document API usage"
+git push
 
 
 ![Python](https://img.shields.io/badge/Python-3.10+-informational)
