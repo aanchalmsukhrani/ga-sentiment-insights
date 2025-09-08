@@ -13,16 +13,19 @@
 
 **Day 4:** Added VADER baseline sentiment scoring, created `product_metrics` SQL view, and exposed read-only API endpoints:
 - `/products`, `/metrics`, `/metrics/{product_id}`, `/products/{product_id}/reviews`
+
+**Day 5:** Minimal Streamlit dashboard consuming FastAPI:
+- `/products`, `/metrics`, `/metrics/{product_id}`, `/products/{product_id}/reviews`
+- Charts: sentiment distribution (bar), ratings over time (line)
+- Run: `streamlit run app_streamlit.py`
+
 ### API (read-only)
 - `GET /products` → list products
 - `GET /metrics` → per-product: total_reviews, avg_rating, avg_sentiment_score, positive/neutral/negative counts
 - `GET /metrics/{product_id}` → metrics for a single product
 - `GET /products/{product_id}/reviews?limit=100` → reviews + sentiment for that product
 
-**Day 5:** Minimal Streamlit dashboard consuming FastAPI:
-- `/products`, `/metrics`, `/metrics/{product_id}`, `/products/{product_id}/reviews`
-- Charts: sentiment distribution (bar), ratings over time (line)
-- Run: `streamlit run app_streamlit.py`
+
 
 **Quick test**
 ```bash
