@@ -19,6 +19,11 @@
 - `GET /metrics/{product_id}` → metrics for a single product
 - `GET /products/{product_id}/reviews?limit=100` → reviews + sentiment for that product
 
+**Day 5:** Minimal Streamlit dashboard consuming FastAPI:
+- `/products`, `/metrics`, `/metrics/{product_id}`, `/products/{product_id}/reviews`
+- Charts: sentiment distribution (bar), ratings over time (line)
+- Run: `streamlit run app_streamlit.py`
+
 **Quick test**
 ```bash
 curl -s http://127.0.0.1:8000/metrics | jq
