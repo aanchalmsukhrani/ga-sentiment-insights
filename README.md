@@ -19,6 +19,14 @@
 - Charts: sentiment distribution (bar), ratings over time (line)
 - Run: `streamlit run app_streamlit.py`
 
+**Day 6:** Dataset Ingestion + Product Enrichment
+- Integrated Kaggle Amazon Electronics Products Sales dataset (42K+ rows).
+- Built a staging pipeline (`ingest_products_csv.py`) with chunked loading & normalization.
+- Added deduplication logic to prevent duplicate `source_key` conflicts.
+- Populated `products` table with enriched metadata (ratings, discounts, categories, etc.).
+- Created `v_products_enriched` view for easy inspection of pricing, discounts, and attributes.
+
+
 ### API (read-only)
 - `GET /products` → list products
 - `GET /metrics` → per-product: total_reviews, avg_rating, avg_sentiment_score, positive/neutral/negative counts
