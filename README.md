@@ -26,8 +26,28 @@
 - Populated `products` table with enriched metadata (ratings, discounts, categories, etc.).
 - Created `v_products_enriched` view for easy inspection of pricing, discounts, and attributes.
 
+## Dataset
 
-### API (read-only)
+We are using the **Amazon Electronics Products Sales Dataset (42K+ items, 2025)** from Kaggle.  
+It contains enriched information on product titles, ratings, total reviews, sales, discounts, and category metadata.  
+
+- **Rows:** 42,676 products  
+- **Columns:** 17 features (ratings, pricing, discounts, best seller flag, sponsored flag, etc.)  
+- **Files included:**  
+  - `amazon_products_sales_data_cleaned.csv` – cleaned and ready to use  
+  - `amazon_products_sales_data_uncleaned.csv` – raw scraped version  
+
+We chose this dataset because it provides:
+- **Breadth**: 42K+ products across multiple electronics categories.  
+- **Rich attributes**: Ratings, pricing trends, coupons, sustainability tags.  
+- **Practicality**: Useful for sentiment analysis, pricing analytics, and recommendation system demos.  
+
+## Ingestion
+
+The dataset is ingested in **chunks of 10,000 rows** using `scripts/ingest_products_csv.py`.  
+Data is first normalized (currencies, percentages, dates, booleans), then loaded into a staging table (`stg_products`), and finally upserted into the main `products` table.
+
+## API (read-only)
 - `GET /products` → list products
 - `GET /metrics` → per-product: total_reviews, avg_rating, avg_sentiment_score, positive/neutral/negative counts
 - `GET /metrics/{product_id}` → metrics for a single product
@@ -36,7 +56,7 @@
 
 
 **Quick test**
-```bash
+
 curl -s http://127.0.0.1:8000/metrics | jq
 
 
@@ -49,7 +69,7 @@ curl -s http://127.0.0.1:8000/metrics | jq
 
 ## 5) Commit the polish
 If you added CORS + README updates:
-```bash
+
 git add src/app/main.py README.md
 git commit -m "chore: enable CORS for dev and document API usage"
 git push
@@ -73,7 +93,7 @@ End‑to‑end project: ingest review data → clean & analyze → run sentiment
 See **docs/assets/architecture.png** and **docs/assets/erd.png**.
 
 ## Quickstart (local)
-```bash
+
 # 1) Create venv
 python3 -m venv .venv
 source .venv/bin/activate  # Windows: .venv\Scripts\activate
@@ -88,7 +108,7 @@ uvicorn src.app.main:app --reload
 # Run locally (quick alias)
 source .venv/bin/activate
 uvicorn src.app.main:app --reload
-```
+
 
 API will run at http://127.0.0.1:8000  → Visit `/health`
 
