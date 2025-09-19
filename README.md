@@ -47,6 +47,29 @@ We chose this dataset because it provides:
 The dataset is ingested in **chunks of 10,000 rows** using `scripts/ingest_products_csv.py`.  
 Data is first normalized (currencies, percentages, dates, booleans), then loaded into a staging table (`stg_products`), and finally upserted into the main `products` table.
 
+**Day 7:** Data Validation + Dashboard Integration
+Fixed ingest_reviews.py to correctly seed review_date and rating columns.
+
+Granted permissions/ownership to allow schema updates and ingestion scripts to run smoothly.
+
+Ran sentiment_vader.py after installing required NLTK corpora (vader_lexicon, wordnet).
+
+Verified successful population of sentiment_results (5.6K+ rows) and reviews (5.6K+ rows).
+
+Queried /metrics endpoint in FastAPI → confirmed aggregated sentiment counts and averages returned correctly.
+
+Tested data in pgAdmin with SELECT count(*) on reviews and sentiment_results → counts matched.
+
+Streamlit dashboard now fully renders:
+
+Sentiment distribution (bar chart).
+
+Ratings over time (line chart based on review_date).
+
+Latest Reviews with polarity values.
+
+Linked progress to GitHub Issues and moved completed items in Project board.
+
 ## API (read-only)
 - `GET /products` → list products
 - `GET /metrics` → per-product: total_reviews, avg_rating, avg_sentiment_score, positive/neutral/negative counts
